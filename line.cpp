@@ -1,4 +1,8 @@
-//直线绘制
+/*
+ * 直线绘制
+ * 根据鼠标按下的两个点绘制一条直线
+ * 
+ */
 #include <graphics.h>
 #include <stdio.h>
 #include <string.h>
@@ -25,7 +29,10 @@ int main()
 			msg = getmouse();
 			if( msg.is_down()){
 				mousepos(&p->x, &p->y);
+				putpixel(p->x,p->y,BLACK);
+				
 				if(p == &line_pos[1]){
+					setlinewidth(1);
 					ege_line(line_pos[0].x,line_pos[0].y,line_pos[1].x,line_pos[1].y);
 					memset(line_pos,0,sizeof(line_pos));
 					p = &line_pos[0];
