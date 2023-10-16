@@ -1,4 +1,4 @@
-package main
+package main1
 
 //井字棋服务端
 import (
@@ -39,6 +39,12 @@ func handle_pos(coordStr string) {
 		}
 	} else {
 		fmt.Println("无效的坐标字符串")
+	}
+}
+
+func broadcast_msg (msg string) {
+	for i:=0; i<2 ;i++ {
+		ClientList[i].Write([]byte(msg))
 	}
 }
 
